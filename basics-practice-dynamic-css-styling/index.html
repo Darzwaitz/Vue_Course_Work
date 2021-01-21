@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <!--ex.1
+      -- border colour red if active(true) blue if false --
+      <div class="demo"      
+      :style="{borderColor: boxASelected ? 'red' : 'blue'}"
+      @click="boxSelected('A')"></div> -->
+
+      <!-- ex2.
+      <div class="demo"    
+      :class="{active: boxASelected}"  
+      @click="boxSelected('A')"></div> 
+      this code then refactored with computed properties to keep logic in JS file -->
+
+      <div class="demo"    
+      :class="boxAClasses"  
+      @click="boxSelected('A')"></div>
+
+      <div class="demo" 
+      :class="{active: boxBSelected}"  
+      @click="boxSelected('B')"></div>
+
+      <!-- ex.3 array syntax, adding option of more dynamic classes with the array -->
+      <div class="demo" 
+      :class="['newClass',{active: boxCSelected}]"  
+      @click="boxSelected('C')"></div>
+    </section>
+  </body>
+</html>
