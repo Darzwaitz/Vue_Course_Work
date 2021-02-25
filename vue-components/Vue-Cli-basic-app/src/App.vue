@@ -2,7 +2,18 @@
 <section>   
         <header><h1>My friendz</h1></header>    
         <ul>
-            <friend-contact></friend-contact>
+            <friend-contact
+                name="test name 1"
+                phone-number="01234321"
+                email-address="test1@test.com"
+                is-favourite="1"
+            ></friend-contact>
+            <friend-contact
+                name="test name 2"
+                phone-number="54365321"
+                email-address="test2@test.com"
+                is-favourite="0"
+            ></friend-contact>
         </ul>
     </section> 
     
