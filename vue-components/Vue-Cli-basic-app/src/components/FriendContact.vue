@@ -41,7 +41,18 @@ export default {
       default: false
     }
   },
-  emits: ['toggle-favourite'],
+  emits: ['toggle-favourite'], //used to quckly show developers which emits are present
+  //optionally provide object, and warnings if valuez are missing
+  // emits: {
+  //   'toggle-favourite' : function (id) {
+  //     if (id) {
+  //       return true
+  //     }else{
+  //       console.warn('Id iz missing!');
+  //       return false;
+  //     }
+  //   }
+  // }
     data() {
         return {
             detailsAreVisible: false
@@ -62,7 +73,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -124,7 +135,7 @@ header {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-}
+} */
 
 
 </style>
