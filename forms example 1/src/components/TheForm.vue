@@ -1,16 +1,27 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="user-name">Your Name</label>
-      <input id="user-name" name="user-name" type="text" />
+      <input
+        v-model.trim="userName"
+        id="user-name"
+        name="user-name"
+        type="text"
+      />
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" />
+      <input
+        ref="ageInput"
+        v-model.trim="userAge"
+        id="age"
+        name="age"
+        type="number"
+      />
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
-      <select id="referrer" name="referrer">
+      <select v-model="referrer" id="referrer" name="referrer">
         <option value="google">Google</option>
         <option value="wom">Word of mouth</option>
         <option value="newspaper">Newspaper</option>
@@ -19,38 +30,119 @@
     <div class="form-control">
       <h2>What are you interested in?</h2>
       <div>
-        <input id="interest-news" name="interest" type="checkbox" />
+        <input
+          v-model="interest"
+          id="interest-news"
+          name="interest"
+          type="checkbox"
+          value="news"
+        />
         <label for="interest-news">News</label>
       </div>
       <div>
-        <input id="interest-tutorials" name="interest" type="checkbox" />
+        <input
+          v-model="interest"
+          id="interest-tutorials"
+          name="interest"
+          type="checkbox"
+          value="tutorials"
+        />
         <label for="interest-tutorials">Tutorials</label>
       </div>
       <div>
-        <input id="interest-nothing" name="interest" type="checkbox" />
+        <input
+          v-model="interest"
+          id="interest-nothing"
+          name="interest"
+          type="checkbox"
+          value="nothing"
+        />
         <label for="interest-nothing">Nothing</label>
       </div>
     </div>
     <div class="form-control">
       <h2>How do you learn?</h2>
       <div>
-        <input id="how-video" name="how" type="radio" />
+        <input
+          v-model="how"
+          id="how-video"
+          name="how"
+          type="radio"
+          value="courses"
+        />
         <label for="how-video">Video Courses</label>
       </div>
       <div>
-        <input id="how-blogs" name="how" type="radio" />
+        <input
+          v-model="how"
+          id="how-blogs"
+          name="how"
+          type="radio"
+          value="blogz"
+        />
         <label for="how-blogs">Blogs</label>
       </div>
       <div>
-        <input id="how-other" name="how" type="radio" />
+        <input
+          v-model="how"
+          id="how-other"
+          name="how"
+          type="radio"
+          value="other"
+        />
         <label for="how-other">Other</label>
       </div>
+    </div>
+    <div class="form-control">
+      <input
+        v-model="confirm"
+        type="checkbox"
+        name="confirm-terms"
+        id="confirm-terms"
+      />
+      <label for="confirm-terms">Agree to termz</label>
     </div>
     <div>
       <button>Save Data</button>
     </div>
   </form>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      userName: '',
+      userAge: null,
+      referrer: 'wom',
+      interest: [],
+      how: null,
+      confirm: false,
+    };
+  },
+  methods: {
+    submitForm() {
+      console.log(this.userName);
+      this.userName = '';
+      console.log('Userage:');
+      // refs will output number as string
+      console.log(this.$refs.ageInput.value);
+      // v-model will output number
+      console.log(this.userAge);
+      console.log('referrer:' + this.referrer);
+      this.referrer = '';
+      console.log('Checkboxes');
+      console.log(this.interest);
+      console.log('Radio buttons');
+      console.log(this.how);
+      this.interest = [];
+      this.how = null;
+      console.log(this.confirm);
+      this.confirm = false;
+    },
+  },
+};
+</script>
 
 <style scoped>
 form {
