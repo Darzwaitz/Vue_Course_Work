@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="form-control">
-      <rating-control></rating-control>
+      <rating-control v-model="rating"></rating-control>
     </div>
     <!-- accept termz  -->
     <div class="form-control">
@@ -126,6 +126,7 @@ export default {
       interest: [],
       how: null,
       confirm: false,
+      rating: null,
     };
   },
   methods: {
