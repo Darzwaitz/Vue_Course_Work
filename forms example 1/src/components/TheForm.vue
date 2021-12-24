@@ -94,6 +94,10 @@
       </div>
     </div>
     <div class="form-control">
+      <rating-control></rating-control>
+    </div>
+    <!-- accept termz  -->
+    <div class="form-control">
       <input
         v-model="confirm"
         type="checkbox"
@@ -109,7 +113,11 @@
 </template>
 
 <script>
+import RatingControl from './RatingControl.vue';
 export default {
+  components: {
+    RatingControl,
+  },
   data() {
     return {
       userName: '',
