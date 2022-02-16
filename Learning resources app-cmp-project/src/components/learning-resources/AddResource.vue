@@ -19,7 +19,7 @@
         <input type="text" id="title" name="title" ref="titleInput" />
       </div>
       <div class="form-control">
-        <label for="title">Description</label>
+        <label for="description">Description</label>
         <textarea
           id="description"
           name="description"
