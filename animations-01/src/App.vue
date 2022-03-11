@@ -73,7 +73,7 @@ button:active {
   height: 8rem;
   background-color: #290033;
   margin-bottom: 2rem;
-  /* transition: transform 0.4s ease-out; */
+  transition: transform 0.4s ease-out;
 }
 .container {
   max-width: 40rem;
@@ -87,33 +87,39 @@ button:active {
   border-radius: 12px;
 }
 .animate {
-  /* transform: translateX(-50px); */
-  animation: slide-fade 0.4s ease-out forwards;
+  transform: translateX(-50px);
+  /* animation: slide-fade 0.4s ease-out forwards;*/
 }
 
-.v-enter-from {
+/* .v-enter-from {
   opacity: 0;
   transform: translateY(-30px);
-}
+} */
 .v-enter-active {
+  animation: toggleParagraph 3s ease-out;
+}
+/* .v-enter-active {
   transition: all 0.3s ease-out;
-}
-.v-enter-to {
+} */
+/* .v-enter-to {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
-.v-leave-from {
+/* .v-leave-from {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 .v-leave-active {
-  transition: all 0.4s ease-in;
+  animation: toggleParagraph 3s ease-out;
 }
-.v-leave-to {
+/* .v-leave-active {
+  transition: all 0.4s ease-in;
+} */
+/* .v-leave-to {
   opacity: 0;
   transform: translateY(-30px);
-}
+} */
 
 @keyframes slide-fade {
   0% {
@@ -124,6 +130,17 @@ button:active {
   }
   100% {
     transform: translateX(-150px) scale(1);
+  }
+}
+
+@keyframes toggleParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
