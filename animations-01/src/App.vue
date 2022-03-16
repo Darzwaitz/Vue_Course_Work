@@ -4,7 +4,15 @@
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">
-    <transition>
+    <transition
+      name="para"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
+    >
       <p v-if="paraIsVisible">This iz only sometimez vizible</p>
     </transition>
     <button @click="toggleParagraph">Toggle paragraph</button>
@@ -36,6 +44,30 @@ export default {
     };
   },
   methods: {
+    beforeEnter(el) {
+      console.log('before Enter');
+      console.log(el.textContent);
+    },
+    beforeLeave(el) {
+      console.log('before Leave');
+      console.log(el);
+    },
+    enter(el) {
+      console.log('enter');
+      console.log(el);
+    },
+    afterEnter(el) {
+      console.log('after Enter');
+      console.log(el);
+    },
+    leave(el) {
+      console.log('Leave');
+      console.log(el);
+    },
+    afterLeave(el) {
+      console.log('after Leave');
+      console.log(el);
+    },
     showUsers() {
       this.usersAreVisible = true;
     },
@@ -109,8 +141,8 @@ button:active {
   opacity: 0;
   transform: translateY(-30px);
 } */
-.v-enter-active {
-  animation: toggleParagraph 3s ease-out;
+.para-enter-active {
+  animation: toggleParagraph 0.3s ease-out;
 }
 /* .v-enter-active {
   transition: all 0.3s ease-out;
@@ -124,8 +156,8 @@ button:active {
   opacity: 1;
   transform: translateY(0);
 } */
-.v-leave-active {
-  animation: toggleParagraph 3s ease-out;
+.para-leave-active {
+  animation: toggleParagraph 0.3s ease-in reverse;
 }
 /* .v-leave-active {
   transition: all 0.4s ease-in;
