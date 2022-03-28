@@ -1,10 +1,12 @@
 <template>
   <ul>
-    <li v-for="user in users" :key="user">{{ user }}</li>
+    <li v-for="user in users" :key="user" @click="removeUser(user)">
+      {{ user }}
+    </li>
   </ul>
   <div>
-    <input type="text" />
-    <button>Add User</button>
+    <input type="text" ref="userNameInput" />
+    <button @click="addUser">Add User</button>
   </div>
 </template>
 
@@ -15,13 +17,22 @@ export default {
       users: ['Darz', 'Johny', 'Sam', 'Alan'],
     };
   },
+  methods: {
+    addUser() {
+      const enteredUserName = this.$refs.userNameInput.value;
+      this.users.unshift(enteredUserName);
+    },
+    removeUser(user) {
+      this.users = this.users.filter((usr) => usr !== user);
+    },
+  },
 };
 </script>
 
 <style scoped>
 ul {
   list-style-type: none;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
 }
 li {
