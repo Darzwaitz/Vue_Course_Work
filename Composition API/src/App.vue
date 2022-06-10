@@ -2,6 +2,7 @@
   <section class="container">
     <h2>{{ user.name }}</h2>
     <h3>{{ user.age }}</h3>
+    <button @click="increment">Increment x 1</button>
   </section>
 </template>
 
@@ -19,10 +20,14 @@ const user = reactive({
 
 console.log(user);
 
-setTimeout(function () {
-  user.name = 'Darzer';
-  user.age = 38;
-}, 2000);
+// setTimeout(function () {
+//   user.name = 'Darzer';
+//   user.age = 38;
+// }, 2000);
+
+function increment() {
+  user.age++;
+}
 
 // return { userName: uName };
 // },
