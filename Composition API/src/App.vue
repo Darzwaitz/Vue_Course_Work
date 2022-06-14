@@ -12,7 +12,7 @@
 
 <script setup>
 // import { reactive } from 'vue';
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 // export default {
 //   setup() {
@@ -25,6 +25,10 @@ const uName = computed(function () {
   return firstName.value + ' ' + lastName.value;
 });
 
+watch([uAge, uName], function (newValue, oldValue) {
+  console.log(oldValue[1]);
+  console.log(newValue[1]);
+});
 // function setFirstName(event) {
 //   firstName.value = event.target.value;
 // }
