@@ -5,63 +5,78 @@
     <button @click="increment">Increment x 1</button>
     <div class="">
       <input type="text" placeholder="First Name" v-model="firstName" />
-      <input type="text" placeholder="Last Name" v-model="lastName" />
+      <input type="text" placeholder="Last Name" ref="lastNameInput" />
+      <button @click="setLastName">Set Last Name</button>
     </div>
   </section>
 </template>
 
-<script setup>
+<script>
+// <script setup>
+
 // import { reactive } from 'vue';
-import { ref, computed, watch } from 'vue';
+import { ref } from 'vue';
 
-// export default {
-//   setup() {
-// const uName = ref('Darz');
-const uAge = ref(40);
-const firstName = ref('');
-const lastName = ref('');
+export default {
+  setup() {
+    // const uName = ref('Darz');
+    const uAge = ref(40);
+    const firstName = ref('');
+    const lastNameInput = ref(null);
+    // const lastName = ref('');
 
-const uName = computed(function () {
-  return firstName.value + ' ' + lastName.value;
-});
+    // const uName = computed(function () {
 
-watch([uAge, uName], function (newValue, oldValue) {
-  console.log(oldValue[1]);
-  console.log(newValue[1]);
-});
-// function setFirstName(event) {
-//   firstName.value = event.target.value;
-// }
+    // });
 
-// function setLastName(event) {
-//   lastName.value = event.target.value;
-// }
+    // watch([uAge, uName], function (newValue, oldValue) {
+    //   console.log(oldValue[1]);
+    //   console.log(newValue[1]);
+    // });
 
-// const user = reactive({
-//   name: 'Darz',
-//   age: 40,
-// });
+    function increment() {
+      uAge.value++;
+    }
 
-// console.log(user);
+    function setLastName() {
+      lastNameInput.value = lastNameInput.value.value;
+    }
+    return {
+      firstName,
+      // lastName,
+      increment,
+      setLastName,
+      lastNameInput,
+    };
+    // function setFirstName(event) {
+    //   firstName.value = event.target.value;
+    // }
 
-// setTimeout(function () {
-//   user.name = 'Darzer';
-//   user.age = 38;
-// }, 2000);
+    // function setLastName(event) {
+    //   lastName.value = event.target.value;
+    // }
 
-function increment() {
-  uAge.value++;
-}
+    // const user = reactive({
+    //   name: 'Darz',
+    //   age: 40,
+    // });
 
-// return { userName: uName };
-// },
+    // console.log(user);
 
-// data() {
-//   return {
-//     userName: 'Darzer',
-//   };
-// },
-// };
+    // setTimeout(function () {
+    //   user.name = 'Darzer';
+    //   user.age = 38;
+    // }, 2000);
+
+    // return { userName: uName };
+    // },
+
+    // data() {
+    //   return {
+    //     userName: 'Darzer',
+    //   };
+  },
+};
 </script>
 
 <style>
