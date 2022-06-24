@@ -1,6 +1,11 @@
 <template>
   <form>
-    <input type="search" @input="search" :value="searchTerm" placeholder="Filter items" />
+    <input
+      type="search"
+      @input="search"
+      :value="searchTerm"
+      placeholder="Filter itemz"
+    />
   </form>
 </template>
 
