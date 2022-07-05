@@ -10,7 +10,7 @@
 
 <script>
 import UserAlert from './UserAlert.vue';
-import { alertMixin } from '../mixins/alert.js';
+import alertMixin from '../mixins/alert.js';
 
 export default {
   components: {
