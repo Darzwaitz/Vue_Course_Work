@@ -27,4 +27,10 @@ export default function useSearch(items, searchProp) {
   function updateSearch(val) {
     enteredSearchTerm.value = val;
   }
+
+  return {
+    enteredSearchTerm,
+    availableItems,
+    updateSearch,
+  };
 }
