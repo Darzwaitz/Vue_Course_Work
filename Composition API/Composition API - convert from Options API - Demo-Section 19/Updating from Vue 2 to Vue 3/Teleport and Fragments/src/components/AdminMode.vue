@@ -1,23 +1,27 @@
 <template>
+  <confirm-dialog
+    v-if="forceConfirm"
+    @cancel="cancelChange"
+    @confirm="confirmChange"
+  ></confirm-dialog>
   <li>
-    <confirm-dialog v-if="forceConfirm" @cancel="cancelChange" @confirm="confirmChange"></confirm-dialog>
     <h2>{{ modeName }}</h2>
     <button @click="deactivate">Deactivate</button>
   </li>
 </template>
 
 <script>
-import ConfirmDialog from "./ConfirmDialog.vue";
+import ConfirmDialog from './ConfirmDialog.vue';
 
 export default {
-  props: ["modeName"],
-  emits: ["deactivate"],
+  props: ['modeName'],
+  emits: ['deactivate'],
   components: {
-    ConfirmDialog,
+    ConfirmDialog
   },
   data() {
     return {
-      forceConfirm: false,
+      forceConfirm: false
     };
   },
   methods: {
@@ -28,9 +32,9 @@ export default {
       this.forceConfirm = false;
     },
     confirmChange() {
-      this.$emit("deactivate");
-    },
-  },
+      this.$emit('deactivate');
+    }
+  }
 };
 </script>
 
