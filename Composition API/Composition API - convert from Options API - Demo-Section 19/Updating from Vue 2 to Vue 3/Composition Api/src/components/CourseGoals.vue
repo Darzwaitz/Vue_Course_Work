@@ -20,17 +20,17 @@ export default {
     const goals = ref([]);
 
     const filteredGoals = computed(function() {
-      return goals.filter(
+      return goals.value.filter(
         goal => !goal.text.includes('Angular') && !goal.text.includes('React')
       );
     });
 
-    function addGoal() {
+    function addGoal(text) {
       const newGoal = {
         id: new Date().toISOString(),
         text: text
       };
-      goals.push(newGoal);
+      goals.value.push(newGoal);
     }
 
     return {

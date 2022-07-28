@@ -12,32 +12,42 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
 export default {
-  emits: ["add-goal"],
-  data() {
+  emits: ['add-goal'],
+  setup() {
+    const enteredText = ref('');
+    const invalidInput = ref(false);
+
     return {
-      enteredText: "",
-      invalidInput: false,
+      enteredText,
+      invalidInput
     };
-  },
-  methods: {
-    addGoal() {
-      this.invalidInput = false;
-      if (this.enteredText === "") {
-        this.invalidInput = true;
-        return;
-      }
-      this.$emit("add-goal", this.enteredText);
-      this.enteredText = '';
-    },
-  },
-  watch: {
-    invalidInput(val) {
-      if (val) {
-        console.log("Analytics: Invalid Input");
-      }
-    },
-  },
+  }
+  // data() {
+  //   return {
+  //     enteredText: "",
+  //     invalidInput: false,
+  //   };
+  // },
+  // methods: {
+  //   addGoal() {
+  //     this.invalidInput = false;
+  //     if (this.enteredText === "") {
+  //       this.invalidInput = true;
+  //       return;
+  //     }
+  //     this.$emit("add-goal", this.enteredText);
+  //     this.enteredText = '';
+  //   },
+  // },
+  // watch: {
+  //   invalidInput(val) {
+  //     if (val) {
+  //       console.log("Analytics: Invalid Input");
+  //     }
+  //   },
+  // },
 };
 </script>
 
