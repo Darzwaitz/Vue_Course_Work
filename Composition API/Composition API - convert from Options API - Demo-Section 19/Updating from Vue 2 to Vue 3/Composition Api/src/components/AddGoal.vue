@@ -15,13 +15,24 @@
 import { ref } from '@vue/reactivity';
 export default {
   emits: ['add-goal'],
-  setup() {
+  setup(_, context) {
     const enteredText = ref('');
     const invalidInput = ref(false);
 
+    function addGoal() {
+      invalidInput.value = false;
+      if (enteredText.value === '') {
+        invalidInput.value = true;
+        return;
+      }
+      context.emit('add-goal', enteredText.value);
+      enteredText.value = '';
+    }
+
     return {
       enteredText,
-      invalidInput
+      invalidInput,
+      addGoal
     };
   }
   // data() {
