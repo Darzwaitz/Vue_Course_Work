@@ -12,12 +12,18 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity';
+import { ref, watch } from '@vue/reactivity';
 export default {
   emits: ['add-goal'],
   setup(_, context) {
     const enteredText = ref('');
     const invalidInput = ref(false);
+
+    watch(invalidInput, function(val) {
+      if (val) {
+        console.log('Analytics: Invalid Input');
+      }
+    });
 
     function addGoal() {
       invalidInput.value = false;
