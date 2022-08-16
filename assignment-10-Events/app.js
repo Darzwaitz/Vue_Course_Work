@@ -5,7 +5,7 @@ new Vue({
   },
   methods: {
     alertMe: function () {
-      alert("Alert");
+      alert("Alert!");
     },
   },
 });
