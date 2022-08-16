@@ -10,8 +10,8 @@ new Vue({
   },
   watch: {
     result: function () {
-      var vm = this;
-      setTimeout(function () {
+      let vm = this;
+      setTimeout(() => {
         vm.value = 0;
       }, 5000);
     },

@@ -11,7 +11,7 @@ new Vue({
     myStyle: {
       width: "100px",
       height: "150px",
-      backgroundColor: "gray",
+      backgroundColor: "yellow",
     },
     progressBar: {
       width: "0px",
@@ -20,17 +20,16 @@ new Vue({
   },
   methods: {
     startEffect: function () {
-      var vm = this;
+      let vm = this;
       setInterval(function () {
         vm.effectClasses.highlight = !vm.effectClasses.highlight;
         vm.effectClasses.shrink = !vm.effectClasses.shrink;
       }, 1000);
     },
     startProgress: function () {
-      var vm = this;
-      var width = 0;
-
-      setInterval(function () {
+      let vm = this;
+      let width = 0;
+      setInterval(() => {
         width = width + 10;
         vm.progressBar.width = width + "px";
       }, 500);
